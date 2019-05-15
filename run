@@ -28,8 +28,8 @@ for users in "$@"; do
     chown root:root /home/$user
     chmod 755 /home/$user
 
-    mkdir /home/$user/public
-    chmod 777 /home/$user/public
+#    mkdir /home/$user/public
+#    chmod 777 /home/$user/public
 
     if [ -z "$pass" ]; then
         pass="$(echo `</dev/urandom tr -dc A-Za-z0-9 | head -c256`)"
