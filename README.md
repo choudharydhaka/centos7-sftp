@@ -34,7 +34,6 @@ services:
   sftp:
     image: dhaks/centos7-sftp:1.0.0
     hostname: sftp
-    domainname: esb2.mbiedev
     ports:
       - "2222:22"
     volumes:
