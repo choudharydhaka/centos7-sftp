@@ -1,5 +1,5 @@
 # centos7-sftp
-This image has centos7 running OpenSSL Sftp server configured on port 22, you must supply a username, share directory and password in order to run this image.
+This image has centos7 running OpenSSL Sftp server configured on port 22, you must supply a username, share directory and password in order to run this image. Note: Please use docker compose in windows machine.
 
 # Build
 Please use the script ``` build.sh``` to build the docker image
@@ -9,12 +9,19 @@ Please use the script ``` build.sh``` to build the docker image
 ---
 # Run
 ## Run using Docker 
+### Step 1  Create directory **share**
+``` 
+mkdir -m 755 share 
+```
+
+### Step 2 Run docker sftp container
 ```
 docker run \
     -v share:/home/foo/share \
-    -p 2222:22 -d dhaks\centos7-sftp \
+    -p 2222:22 -d dhaks/centos7-sftp:1.0.0 \
     foo:123:1001
 ```
+
 ``` Note: username is "foo" with password "123" and userid "1001"```
 ## Run using Docker-compose
 ### Prerequisite
@@ -23,8 +30,8 @@ docker run \
 
 ### Step 1  Create directory **share**
 ``` 
-mkdir share 
-chmod 777 share
+mkdir -m 755 share 
+
 ```
 ### Step 2: Create **docker-compose .yml** file 
 #### docker-compose.yml
